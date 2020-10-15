@@ -11,18 +11,18 @@
 }
 
 .chip {
-  height: 45px;
-  width: 45px;
+  height: 2.4vw;
+  width: 2.4vw;
   border-radius: 100%;
   background-color: pink;
   box-sizing: border-box;
 }
 
 .chipArea {
-  height: 150px;
-  width: 300px;
+  height: 8vw;
+  width: 15vw;
   background-color: skyblue;
-  border: 2px solid black;
+  border: 1px solid black;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -31,7 +31,7 @@
 
 #left,
 #right {
-  height: 300px;
-  width: 200px;
+  height: 16vw;
+  width: 10vw;
   background-color: black;
 }
