@@ -28,30 +28,38 @@ function init(){
       chipAreas[i].appendChild(div);
     }
 
+    // クリック時の処理
     chipAreas[i].addEventListener("click", ()=>{
       if(turn==check[trans[i]] && chips[trans[i]]>0){
         let p = trans[i];
-        console.log("test");
+
+        // チップの移動
         while(chips[trans[i]]>0){
           p=(p+1)%chips.length;
           chips[trans[i]]--;
           chips[p]++;
         }
+
+        // 横取り
         if(turn==check[p] && chips[p]==1){
           chips[chips.length/2 * ((turn+1)%2)] += chips[chips.length-p];
           chips[chips.length/2 * ((turn+1)%2)] += chips[p];
           chips[p] = 0;
           chips[chips.length-p] = 0;
         }
-        chips[chips.length-trans[i]]
+
+        // チップの反映
         setChip();
-        console.log(p,check[p],2+turn)
+
+        // ターン終了処理（＆ぴったりゴールの分岐）
         if(check[p]!=2+turn){
           turn = (turn + 1) % 2;
           document.getElementById("playerId").innerHTML="Player" + (turn + 1);
         }
       }
     });
+
+    // 選択可能なエリアはhoverで色が変わる
     chipAreas[i].addEventListener('mouseenter', ()=>{
       if(turn==check[trans[i]] && chips[trans[i]]>0){
         chipAreas[i].style.backgroundColor = "green";
